@@ -17,9 +17,8 @@ class AdminCheck
             return $next($request);
         }
         return response([
-            "status"=>"error",
             "message"=>"Kamu tidak memiliki akses",
-        ],403);
+        ],400);
         
     }
 }
