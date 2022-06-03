@@ -12,7 +12,7 @@ class AdminCheck
     public function handle(Request $request, Closure $next)
     {
         $id=$request->user()->id;
-        $role=DB::table('roles')->where('id_user', $id)->first();
+        $role=DB::table('roles')->where('user_id', $id)->first();
         if($role->name=="admin"){
             return $next($request);
         }
