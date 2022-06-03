@@ -40,35 +40,35 @@ Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::put('pages/{id}',[PagesController::class,'edit'])->middleware('AdminCheck');
     Route::delete('pages/{id}',[PagesController::class,'destroy'])->middleware('AdminCheck');
     
-    Route::get('components',[ComponentsController::class,'getAll']);
-    Route::post('components',[ComponentsController::class,'add']);
-    Route::get('components/{id}',[ComponentsController::class,'show']);
-    Route::put('components/{id}',[ComponentsController::class,'edit']);
-    Route::delete('components/{id}',[ComponentsController::class,'destroy']);
+    Route::get('components',[ComponentsController::class,'getAll'])->middleware('AdminCheck');
+    Route::post('components',[ComponentsController::class,'add'])->middleware('AdminCheck');
+    Route::get('components/{id}',[ComponentsController::class,'show'])->middleware('AdminCheck');
+    Route::put('components/{id}',[ComponentsController::class,'edit'])->middleware('AdminCheck');
+    Route::delete('components/{id}',[ComponentsController::class,'destroy'])->middleware('AdminCheck');
     
-    Route::get('list-components',[ListComponentsController::class,'getAll']);
-    Route::post('list-components',[ListComponentsController::class,'add']);
-    Route::get('list-components/{id}',[ListComponentsController::class,'show']);
-    Route::put('list-components/{id}',[ListComponentsController::class,'edit']);
-    Route::delete('list-components/{id}',[ListComponentsController::class,'destroy']);
-    Route::put('list-components/{id}/order-number',[ListComponentsController::class,'changeOrderNumber']);
+    Route::get('list-components',[ListComponentsController::class,'getAll'])->middleware('AdminCheck');
+    Route::post('list-components',[ListComponentsController::class,'add'])->middleware('AdminCheck');
+    Route::get('list-components/{id}',[ListComponentsController::class,'show'])->middleware('AdminCheck');
+    Route::put('list-components/{id}',[ListComponentsController::class,'edit'])->middleware('AdminCheck');
+    Route::delete('list-components/{id}',[ListComponentsController::class,'destroy'])->middleware('AdminCheck');
+    Route::put('list-components/{id}/order-number',[ListComponentsController::class,'changeOrderNumber'])->middleware('AdminCheck');
     
-    Route::get('email-list',[EmailListController::class,'getAll']);
-    Route::get('email-list/{id}',[EmailListController::class,'getOne']);
-    Route::put('email-list/{id}',[EmailListController::class,'edit']);
-    Route::delete('email-list/{id}',[EmailListController::class,'destroy']);
-    Route::post('email-list',[EmailListController::class,'add']);
+    Route::get('email-list',[EmailListController::class,'getAll'])->middleware('AdminCheck');
+    Route::get('email-list/{id}',[EmailListController::class,'getOne'])->middleware('AdminCheck');
+    Route::put('email-list/{id}',[EmailListController::class,'edit'])->middleware('AdminCheck');
+    Route::delete('email-list/{id}',[EmailListController::class,'destroy'])->middleware('AdminCheck');
+    Route::post('email-list',[EmailListController::class,'add'])->middleware('AdminCheck');
     
-    Route::get('message-list',[MessageListController::class,'getAll']);
-    Route::get('message-list/{id}',[MessageListController::class,'getOne']);
-    Route::put('message-list/{id}',[MessageListController::class,'edit']);
-    Route::delete('message-list/{id}',[MessageListController::class,'destroy']);
+    Route::get('message-list',[MessageListController::class,'getAll'])->middleware('AdminCheck');
+    Route::get('message-list/{id}',[MessageListController::class,'getOne'])->middleware('AdminCheck');
+    Route::put('message-list/{id}',[MessageListController::class,'edit'])->middleware('AdminCheck');
+    Route::delete('message-list/{id}',[MessageListController::class,'destroy'])->middleware('AdminCheck');
     
-    Route::get('images',[ImageController::class,'getAll']);
-    Route::post('images',[ImageController::class,'uploadData']);
-    Route::get('images/{id}',[ImageController::class,'getOne']);
-    Route::put('images/{id}',[ImageController::class,'edit']);
-    Route::delete('images/{id}',[ImageController::class,'destroy']);
+    Route::get('images',[ImageController::class,'getAll'])->middleware('AdminCheck');
+    Route::post('images',[ImageController::class,'uploadData'])->middleware('AdminCheck');
+    Route::get('images/{id}',[ImageController::class,'getOne'])->middleware('AdminCheck');
+    Route::put('images/{id}',[ImageController::class,'edit'])->middleware('AdminCheck');
+    Route::delete('images/{id}',[ImageController::class,'destroy'])->middleware('AdminCheck');
 });
 
 
