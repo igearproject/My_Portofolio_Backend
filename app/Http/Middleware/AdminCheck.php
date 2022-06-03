@@ -18,7 +18,7 @@ class AdminCheck
         }
         return response([
             "message"=>"Kamu tidak memiliki akses",
-        ],400);
+        ],403);
         
     }
 }
