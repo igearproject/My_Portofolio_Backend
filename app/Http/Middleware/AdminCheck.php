@@ -4,18 +4,22 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminCheck
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
-     */
+    
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        $id=$request->user()->id;
+        $role=DB::table('roles')->where('id_user', $id)->first();
+        if($role->name=="admin"){
+            return $next($request);
+        }
+        return response([
+            "status"=>"error",
+            "message"=>"Kamu tidak memiliki akses",
+        ],403);
+        
     }
 }

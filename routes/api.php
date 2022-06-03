@@ -34,11 +34,11 @@ Route::group(['middleware'=>['auth:sanctum']],function(){
     });
     Route::post('auth/logout',[AuthController::class,'logout']);
     
-    Route::get('pages',[PagesController::class,'getAll']);
-    Route::post('pages',[PagesController::class,'add']);
-    Route::get('pages/{id}',[PagesController::class,'show']);
-    Route::put('pages/{id}',[PagesController::class,'edit']);
-    Route::delete('pages/{id}',[PagesController::class,'destroy']);
+    Route::get('pages',[PagesController::class,'getAll'])->middleware('AdminCheck');
+    Route::post('pages',[PagesController::class,'add'])->middleware('AdminCheck');
+    Route::get('pages/{id}',[PagesController::class,'show'])->middleware('AdminCheck');
+    Route::put('pages/{id}',[PagesController::class,'edit'])->middleware('AdminCheck');
+    Route::delete('pages/{id}',[PagesController::class,'destroy'])->middleware('AdminCheck');
     
     Route::get('components',[ComponentsController::class,'getAll']);
     Route::post('components',[ComponentsController::class,'add']);
