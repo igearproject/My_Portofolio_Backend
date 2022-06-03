@@ -13,7 +13,7 @@ class AdminCheck
     {
         $id=$request->user()->id;
         $role=DB::table('roles')->where('user_id', $id)->first();
-        if($role->name=="admin"){
+        if($role && $role->name=="admin"){
             return $next($request);
         }
         return response([
