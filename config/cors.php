@@ -21,7 +21,7 @@ return [
 
     'allowed_origins' => ['*'],
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => ['sipintek.com', '*.sipintek.com'],
 
     'allowed_headers' => ['*'],
 
